@@ -154,6 +154,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 })();
 
+// ── Legajo académico: pestañas ───────────────────────────────
+(function initLegajoTabs() {
+  const tabs = document.querySelectorAll('.legajo__tab');
+  if (!tabs.length) return;
+  const panels = document.querySelectorAll('.legajo__panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+
+      tabs.forEach(t => {
+        t.classList.toggle('active', t === tab);
+        t.setAttribute('aria-selected', String(t === tab));
+      });
+
+      panels.forEach(panel => {
+        const isTarget = panel.id === 'panel-' + target;
+        panel.classList.toggle('active', isTarget);
+        panel.hidden = !isTarget;
+      });
+    });
+  });
+})();
+
 // ── Botón WhatsApp: tooltip en móvil al tocar ────────────────
 (function initWaFloat() {
   const btn = document.querySelector('.whatsapp-float');

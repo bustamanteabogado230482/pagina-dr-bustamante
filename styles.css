@@ -515,6 +515,275 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ============================================================
+   LEGAJO ACADÉMICO
+============================================================ */
+.legajo {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.legajo__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.legajo__stat {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--offwhite);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.legajo__stat:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.legajo__stat-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.legajo__stat-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.legajo__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.legajo__tab {
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1.5px solid var(--gray-light);
+  background: var(--white);
+  color: var(--charcoal);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: all var(--transition);
+}
+.legajo__tab:hover {
+  border-color: var(--gold);
+  color: var(--navy);
+}
+.legajo__tab.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--gold);
+}
+
+.legajo__panel {
+  display: none;
+}
+.legajo__panel.active {
+  display: block;
+  animation: legajoFadeIn 0.4s ease;
+}
+@keyframes legajoFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Listado tipo línea de tiempo (formación / docencia) */
+.degree-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.degree-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px 24px;
+  background: var(--offwhite);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.degree-item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow);
+}
+.degree-item--highlight {
+  background: rgba(201, 168, 76, 0.08);
+  border-left-color: var(--navy);
+}
+
+.degree-item__year {
+  flex-shrink: 0;
+  min-width: 84px;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+}
+
+.degree-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.degree-item__body strong {
+  color: var(--navy);
+  font-size: 0.97rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.degree-item__body span {
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.legajo__note {
+  max-width: 780px;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-light);
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.7;
+  text-align: center;
+}
+.legajo__note em { color: var(--navy); font-style: normal; font-weight: 600; }
+
+/* Listado de publicaciones / investigaciones / reconocimientos / diplomados */
+.pub-group-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 32px 0 16px;
+}
+.pub-group-title:first-child { margin-top: 0; }
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pub-item {
+  padding: 16px 20px;
+  background: var(--offwhite);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.pub-item:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  transform: translateX(3px);
+}
+.pub-item strong {
+  display: block;
+  color: var(--navy);
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+.pub-item .pub-meta {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--gray);
+}
+
+/* Eventos académicos: dos columnas con scroll */
+.events__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.event-list li {
+  padding: 14px 18px;
+  background: var(--offwhite);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.event-list li:hover { border-color: rgba(201, 168, 76, 0.4); }
+.event-list li strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.45;
+  margin-bottom: 4px;
+}
+.event-list li span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+
+.scroll-list {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+.scroll-list::-webkit-scrollbar { width: 6px; }
+.scroll-list::-webkit-scrollbar-track { background: var(--gray-light); border-radius: 3px; }
+.scroll-list::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* Idiomas */
+.lang-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.lang-item {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--offwhite);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.lang-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+.lang-item strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.lang-item span {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/* ============================================================
    SERVICES
 ============================================================ */
 .services {
@@ -1258,6 +1527,10 @@ a.contact__value:hover { color: var(--gold); }
 
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer__brand { grid-column: 1 / -1; }
+
+  .legajo__stats { grid-template-columns: repeat(2, 1fr); }
+  .events__cols { grid-template-columns: 1fr; gap: 28px; }
+  .lang-list { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
@@ -1274,6 +1547,10 @@ a.contact__value:hover { color: var(--gold); }
 
   .contact__grid { grid-template-columns: 1fr; gap: 48px; }
   .contact__form-wrap { padding: 32px 24px; }
+
+  .legajo__tabs { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 8px; }
+  .legajo__tab { flex-shrink: 0; }
+  .degree-item { flex-direction: column; gap: 4px; }
 }
 
 @media (max-width: 768px) {
@@ -1304,7 +1581,7 @@ a.contact__value:hover { color: var(--gold); }
   .footer__bottom { flex-direction: column; text-align: center; }
 
   .section-title { font-size: 1.7rem; }
-  .about, .services, .books, .testimonials, .blog, .contact { padding: 72px 0; }
+  .about, .services, .books, .testimonials, .blog, .contact, .legajo { padding: 72px 0; }
 }
 
 @media (max-width: 480px) {
@@ -1318,6 +1595,11 @@ a.contact__value:hover { color: var(--gold); }
   .testimonial-card { padding: 24px 20px; }
   .about__badge { right: 0; }
   .whatsapp-float { bottom: 20px; right: 16px; }
+
+  .legajo__stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .legajo__stat { padding: 16px 10px; }
+  .legajo__stat-num { font-size: 1.8rem; }
+  .lang-list { grid-template-columns: 1fr 1fr; }
 }
 
 /* Focus visible para accesibilidad */
