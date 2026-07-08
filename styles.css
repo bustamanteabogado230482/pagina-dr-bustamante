@@ -381,6 +381,64 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    QUOTE
 ============================================================ */
+.institutional-message {
+  background: linear-gradient(135deg, var(--navy) 0%, #0f1e38 60%, var(--navy-light) 100%);
+  padding: 88px 0;
+  text-align: center;
+}
+
+.institutional-message__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.institutional-message__subtitle {
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.institutional-message__video {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.institutional-message__video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+}
+
+.institutional-message__video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .institutional-message {
+    padding: 64px 0;
+  }
+
+  .institutional-message__video {
+    margin-top: 32px;
+  }
+}
+
 .quote-section {
   background: var(--navy);
   padding: 72px 0;
